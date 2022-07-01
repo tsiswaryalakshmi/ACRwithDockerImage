@@ -2,11 +2,11 @@ resource "azurerm_resource_group" "vm_rg" {
   name     = var.vm_rg_group_name
   location = var.vm_rg_group_location
 }
-
+#creating azure container registry
 resource "azurerm_container_registry" "acr_demo" {
   name                = "blogcontainerregistry"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.vm_rg.name
+  location            = azurerm_resource_group.vm_rg.location
   sku                 = "Standard"
   admin_enabled       = false
 }
