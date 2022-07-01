@@ -3,12 +3,13 @@ resource "azurerm_resource_group" "vm_rg" {
   location = var.vm_rg_group_location
 }
 
-resource "azurerm_storage_container" "data" {
-  name                  = var.sc_name
-  storage_account_name  = var.sc_storage_account_name
-  container_access_type = "private"
+resource "azurerm_container_registry" "acr_demo" {
+  name                = "blogcontainerregistry"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  sku                 = "Standard"
+  admin_enabled       = false
 }
-
 
 module "virtual_machine" {
   source                  = "../../../modules/virtualmachine"
