@@ -4,16 +4,16 @@ resource "azurerm_resource_group" "vm_rg" {
 }
 
 resource "azurerm_storage_container" "data" {
-  name                  = "data"
-  storage_account_name  = "tfstate186305558"
+  name                  = var.sc_name
+  storage_account_name  = var.sc_storage_account_name
   container_access_type = "private"
 }
 
 # This is used to upload a local file onto the container
 resource "azurerm_storage_blob" "sample" {
   name                   = "../../../modules/sample.txt"
-  storage_account_name   = "tfstate186305558"
-  storage_container_name = "data"
+  storage_account_name   = var.sc_storage_account_name
+  storage_container_name = var.sc_name
   type                   = "Block"
   source                 = "sample.txt"
 }
