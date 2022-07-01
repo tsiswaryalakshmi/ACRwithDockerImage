@@ -3,6 +3,20 @@ resource "azurerm_resource_group" "vm_rg" {
   location = var.vm_rg_group_location
 }
 
+resource "azurerm_storage_container" "data" {
+  name                  = "data"
+  storage_account_name  = "tfstate186305558"
+  container_access_type = "private"
+}
+resource "azurerm_storage_blob" "sample"  {
+  name                   = "../../../modules/sample.txt"
+  storage_account_name   = "tfstate186305558"
+  storage_container_name = "data"
+  type                   = "Block"
+  source                 = "sample.txt"
+}
+
+  
 
 module "virtual_machine" {
   source                  = "../../../modules/virtualmachine"
