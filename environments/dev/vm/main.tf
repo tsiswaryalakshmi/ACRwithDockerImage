@@ -5,17 +5,18 @@ resource "azurerm_resource_group" "vm_rg" {
 
 resource "azurerm_storage_container" "data" {
   name                  = "data"
-  storage_account_name  = "tfstate186305558"
+  storage_account_name  = "terraformstore10090"
   container_access_type = "private"
 }
-resource "azurerm_storage_blob" "sample"  {
-  name                   = "../../../modules/sample.txt"
-  storage_account_name   = "tfstate186305558"
+
+# This is used to upload a local file onto the container
+resource "azurerm_storage_blob" "sample" {
+  name                   = "sample.txt"
+  storage_account_name   = "appstore4577687"
   storage_container_name = "data"
   type                   = "Block"
   source                 = "sample.txt"
 }
-
   
 
 module "virtual_machine" {
