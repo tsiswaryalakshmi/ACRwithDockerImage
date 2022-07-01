@@ -9,15 +9,6 @@ resource "azurerm_storage_container" "data" {
   container_access_type = "private"
 }
 
-# This is used to upload a local file onto the container
-resource "azurerm_storage_blob" "sample" {
-  name                   = "../../../modules/sample.txt"
-  storage_account_name   = var.sc_storage_account_name
-  storage_container_name = var.sc_name
-# type                   = "Block"
-  source                 = "../../../modules/sample.txt"
-}
-  
 
 module "virtual_machine" {
   source                  = "../../../modules/virtualmachine"
