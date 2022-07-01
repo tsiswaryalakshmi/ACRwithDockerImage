@@ -14,7 +14,7 @@ resource "azurerm_storage_blob" "sample" {
   name                   = "../../../modules/sample.txt"
   storage_account_name   = var.sc_storage_account_name
   storage_container_name = var.sc_name
-  type                   = "Block"
+# type                   = "Block"
   source                 = "../../../modules/sample.txt"
 }
   
