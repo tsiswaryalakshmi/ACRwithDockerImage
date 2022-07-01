@@ -1,6 +1,9 @@
 vm_rg_group_name     = "exxon-rg"
 vm_rg_group_location = "West Europe"
 
+sc_name                 = "data"
+sc_storage_account_name = "tfstate186305558"
+
 vm_name        = "exxon-vm1"
 admin_username = "adminsso"
 admin_password = "Welcome.12345"
