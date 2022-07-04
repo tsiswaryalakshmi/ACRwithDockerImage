@@ -107,3 +107,9 @@ variable "publicip" {
   description = "public_ip_name"
   default     = ""
 }
+
+variable "docker-image" {
+  type        = string
+  description = "name of the docker image to deploy"
+  default     = "ariv3ra/learniac:latest"
+}
