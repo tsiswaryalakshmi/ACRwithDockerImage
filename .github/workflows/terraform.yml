@@ -77,6 +77,6 @@ jobs:
     - name: 'Build and Push Image to ACR'
       uses: azure/docker-login@v1
     - run: |
-        az acr build --registry <container_registry_name> --image customnodeimage .
+        az acr build --registry blogcontainerregistry --image nginx:latest .
                         
 
