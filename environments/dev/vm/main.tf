@@ -14,6 +14,8 @@ resource "azurerm_container_registry" "acr_demo" {
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
   keep_locally = false
+  resource_group_name = azurerm_resource_group.vm_rg.name
+  location            = azurerm_resource_group.vm_rg.location
 }
 
 resource "docker_container" "nginx" {
