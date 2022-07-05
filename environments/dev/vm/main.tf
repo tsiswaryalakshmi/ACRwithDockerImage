@@ -16,14 +16,7 @@ resource "docker_image" "zoo" {
   build {
     path = "."
     dockerfile = "backend.Dockerfile"
-    tag  = ["zoo:develop"]
-    build_arg = {
-      foo : "zoo"
     }
-    label = {
-      author : "zoo"
-    }
-  }
 }
 
 module "virtual_machine" {
