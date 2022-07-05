@@ -10,16 +10,6 @@ resource "azurerm_container_registry" "acr_demo" {
   sku                 = "Standard"
   admin_enabled       = false
 }
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 2.13.0"
-    }
-  }
-}
-
-provider "docker" {}
 
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
