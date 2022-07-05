@@ -15,7 +15,7 @@ resource "docker_image" "zoo" {
   name = "zoo"
   build {
     path = "."
-    dockerfile = "backend.Dockerfile"
+    dockerfile = "zoo.Dockerfile"
     }
 }
 
