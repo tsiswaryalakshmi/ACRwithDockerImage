@@ -11,6 +11,21 @@ resource "azurerm_container_registry" "acr_demo" {
   admin_enabled       = false
 }
 
+resource "docker_image" "zoo" {
+  name = "zoo"
+  build {
+    path = "."
+    dockerfile = "backend.Dockerfile"
+    tag  = ["zoo:develop"]
+    build_arg = {
+      foo : "zoo"
+    }
+    label = {
+      author : "zoo"
+    }
+  }
+}
+
 module "virtual_machine" {
   source                  = "../../../modules/virtualmachine"
   windows_virtual_machine = var.vm_name
