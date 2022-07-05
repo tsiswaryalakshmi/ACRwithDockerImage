@@ -14,7 +14,7 @@ resource "azurerm_container_registry" "acr_demo" {
 resource "docker_image" "zoo" {
   name = "zoo"
   build {
-    path = "."
+    path = "../../../environments/dev/vm"
     dockerfile = "zoo.Dockerfile"
     }
 }
