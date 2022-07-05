@@ -34,11 +34,7 @@ variable "publisher" {
   default     = ""
 }
 
-variable "docker-image" {
-  type        = string
-  description = "name of the docker image to deploy"
-  default     = "ariv3ra/learniac:latest"
-}
+
 
 variable "offer" {
   type        = string
@@ -108,8 +104,3 @@ variable "publicip" {
   default     = ""
 }
 
-variable "docker-image" {
-  type        = string
-  description = "name of the docker image to deploy"
-  default     = "ariv3ra/learniac:latest"
-}
