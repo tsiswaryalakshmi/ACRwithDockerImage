@@ -14,6 +14,10 @@ resource "azurerm_container_registry" "acr_demo" {
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
   keep_locally = false
+  build {
+    image = "nginx:latest"
+    container_registry_name = "blogcontainerregistry"
+   }
 }
 
 resource "docker_container" "nginx" {
