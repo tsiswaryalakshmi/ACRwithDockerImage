@@ -74,9 +74,5 @@ jobs:
                         storage_account_name = ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
                         container_name       = ${{ secrets.AZURE_CONTAINER_NAME }} \
                         key                  = ${{ secrets.AZURE_KEY }}
-    - name: 'Build and Push Image to ACR'
-      uses: azure/docker-login@v1
-    - run: |
-        az acr build --registry blogcontainerregistry --image nginx:latest .
-                        
+   
 
