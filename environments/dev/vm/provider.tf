@@ -9,15 +9,4 @@ provider "azurerm" {
   features {}
 }
 
-terraform {
-  required_providers {
-    docker = "kreuzwerker/docker"
-    version = ">=2.15.0"
-  }
-  backend "azurerm" {}
-}
-provider "docker" {
-  features {}
-}
-
 
