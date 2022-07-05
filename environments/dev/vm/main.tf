@@ -15,8 +15,7 @@ resource "docker_image" "nginx" {
   name         = "nginx:latest"
   keep_locally = false
   build {
-    image = "nginx:latest"
-    container_registry_name = "blogcontainerregistry"
+    container_registry_name = azurerm_container_registry.acr_demo.name
    }
 }
 
