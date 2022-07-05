@@ -1,5 +1,9 @@
 name: 'Terraform'
- 
+on:
+  push:
+    branches:
+    - main
+  pull_request:
 
  
 jobs:
@@ -71,14 +75,4 @@ jobs:
                         container_name       = ${{ secrets.AZURE_CONTAINER_NAME }} \
                         key                  = ${{ secrets.AZURE_KEY }}
                         
-    - name: 'Build and Push Image to ACR'
-      uses: azure/docker-login@v1
-      with:
-        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-    - run: |
-        docker build -t ariv3ra/learniac  -t ariv3ra/learniac:0.0.1 .
-        docker push ariv3ra/learniac
-     #   docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/bookstoreapi:${{ github.sha }}
-     #   docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/bookstoreapi:${{ github.sha }}
+
